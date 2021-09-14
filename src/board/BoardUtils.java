@@ -14,6 +14,4 @@ public class BoardUtils {
         }
         return result;
     }
-
-
 }
