@@ -67,4 +67,8 @@ public class Board {
     public Pawn getWhitePawn(){
         return whitePawn;
     }
+
+    public Tile[][] getGameBoard(){
+        return gameBoard;
+    }
 }

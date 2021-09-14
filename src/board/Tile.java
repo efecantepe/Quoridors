@@ -61,6 +61,6 @@ public class Tile {
 
     @Override
     public String toString(){
-        return (char)(column + 'a') + row + "";
+        return (char)((column + (int)'a')) + "" + row + "";
     }
 }
