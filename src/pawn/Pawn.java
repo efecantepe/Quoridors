@@ -24,12 +24,47 @@ public class Pawn {
     /**
      *  @author Efe Can Tepe
      *          This method is created for calculating the pawn moves on the board
+     *
+     *          TODO: Include special cases on the board.
      */
     public void calculateLegalPawnMoves(){
         List<Move> legalPawnMoves = new ArrayList<Move>();
 
+        if(currentTile.getUpTile() != null){
+            legalPawnMoves.add(new Move(currentTile, currentTile.getUpTile()));
+        }
 
+        if(currentTile.getLeftTile() != null){
+            legalPawnMoves.add(new Move(currentTile, currentTile.getLeftTile()));
+        }
 
+        if(currentTile.getRightTile() != null){
+            legalPawnMoves.add(new Move(currentTile, currentTile.getRightTile()));
+        }
+
+        if(currentTile.getDownTile() != null){
+            legalPawnMoves.add(new Move(currentTile, currentTile.getDownTile()));
+        }
+        pawnMoves = legalPawnMoves;
+    }
+
+    public Board executeMove(final Move executedMove){
+        calculateLegalPawnMoves();
+        for(Move move : pawnMoves){
+            if(move.equals(executedMove)){
+                Tile destinationTileHolder = executedMove.getDestinationTile();
+                Tile currentTileHolder = executedMove.getCurrentTile();
+                board.getGameBoard()[destinationTileHolder.getRow()][destinationTileHolder.getColumn()].
+                        setPawnOnTheTile(currentTileHolder.getPawnOnTheTile());
+
+                board.getGameBoard()[currentTileHolder.getRow()][currentTileHolder.getColumn()].
+                        setPawnOnTheTile(null);
+
+                System.exit(3);
+                break;
+            }
+        }
+        return board;
     }
 
     public void setCurrentTile(final Tile currentTile){

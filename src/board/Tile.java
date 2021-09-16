@@ -19,6 +19,14 @@ public class Tile {
         this.column = column;
     }
 
+    public int getRow(){
+        return row;
+    }
+
+    public int getColumn(){
+        return column;
+    }
+
     public Tile getUpTile(){
         return up;
     }
@@ -62,5 +70,33 @@ public class Tile {
     @Override
     public String toString(){
         return (char)((column + (int)'a')) + "" + row + "";
+    }
+
+    @Override
+    public boolean equals(Object other){
+
+        if(other == null){
+            return false;
+        }
+
+        if(!(other instanceof Tile)){
+            return false;
+        }
+
+        if(other == this){
+            return true;
+        }
+
+        Tile tile = (Tile) other;
+        return tile.getRow() == this.getRow()
+                && tile.getColumn() == this.getColumn();
+    }
+
+    @Override
+    public int hashCode(){
+        return 31 * (31 * this.row + this.column);
+        /*
+            TODO: I am not sure this implementation of the hashCode method is correct.
+        */
     }
 }

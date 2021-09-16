@@ -74,4 +74,12 @@ public class Board {
     public Tile[][] getGameBoard(){
         return gameBoard;
     }
+
+    public void setWhitePawn(final Pawn pawn){
+        whitePawn = pawn;
+    }
+
+    public void setBlackPawn(final Pawn pawn){
+        blackPawn = pawn;
+    }
 }
