@@ -23,9 +23,11 @@ public class ASCII {
 
     private static void start(){
         Scanner scan = new Scanner(System.in);
-
         Board board = new Board();
+        drawBoard(board);
+    }
 
+    private static void drawBoard(Board board){
         Tile[][] holder = board.getGameBoard();
 
         for(int a = 8; a >= 0; a--){
@@ -43,6 +45,5 @@ public class ASCII {
             }
             System.out.println();
         }
-
     }
 }
