@@ -54,10 +54,13 @@ public class Board {
     }
 
     private void createPiecesOnTheBoard(){
-        blackPawn = new Pawn(START_BLACK_ROW, START_BLACK_COLUMN, Alliance.BLACK);
-        whitePawn = new Pawn(START_WHITE_ROW, START_WHITE_COLUMN, Alliance.WHITE);
-        gameBoard[START_BLACK_ROW][START_BLACK_COLUMN].setPawnOnTheTile(blackPawn);
-        gameBoard[START_WHITE_ROW][START_WHITE_COLUMN].setPawnOnTheTile(whitePawn);
+        Tile initialBlackTile = gameBoard[START_BLACK_ROW][START_BLACK_COLUMN];
+        Tile initialWhiteTile = gameBoard[START_WHITE_ROW][START_WHITE_COLUMN];
+
+        blackPawn = new Pawn(initialBlackTile, Alliance.BLACK, this);
+        whitePawn = new Pawn(initialWhiteTile, Alliance.WHITE, this);
+        initialBlackTile.setPawnOnTheTile(blackPawn);
+        initialWhiteTile.setPawnOnTheTile(whitePawn);
     }
 
     public Pawn  getBlackPawn(){
