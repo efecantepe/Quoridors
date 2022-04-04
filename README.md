@@ -1,3 +1,3 @@
 # Quoridors
 
-Quoridors game implementation for java
+Quoridors game implementation for java - unfinished
